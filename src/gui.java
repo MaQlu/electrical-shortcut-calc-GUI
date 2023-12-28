@@ -23,6 +23,10 @@ public class gui {
     JTextField[] tfsgamma = new JTextField[variables.count];
     JTextField[] tfss = new JTextField[variables.count];
     JTextField[] tfsx = new JTextField[variables.count];
+    JLabel[] lsdlugosc = new JLabel[variables.count];
+    JLabel[] lsgamma = new JLabel[variables.count];
+    JLabel[] lss = new JLabel[variables.count];
+    JLabel[] lsx = new JLabel[variables.count];
     JButton b,eq;
     JCheckBox c1,c2;
 
@@ -148,7 +152,7 @@ public class gui {
 
         //długość linii
         tfsdlugosc = new JTextField[variables.count];
-        JLabel[] lsdlugosc = new JLabel[variables.count];
+        lsdlugosc = new JLabel[variables.count];
         for (int j = 0; j < tfsdlugosc.length; j++) {
             lsdlugosc[j] = new JLabel("l[m] dla linii: "+j);
             f.add(lsdlugosc[j]);
@@ -167,7 +171,7 @@ public class gui {
 
         //gamma linii
         tfsgamma = new JTextField[variables.count];
-        JLabel[] lsgamma = new JLabel[variables.count];
+        lsgamma = new JLabel[variables.count];
         for (int j = 0; j < tfsgamma.length; j++) {
 
             lsgamma[j] = new JLabel("gamma dla linii: "+j);
@@ -183,7 +187,7 @@ public class gui {
         //s linii
         y=90;
         tfss = new JTextField[variables.count];
-        JLabel[] lss = new JLabel[variables.count];
+        lss = new JLabel[variables.count];
         for (int j = 0; j < tfss.length; j++) {
 
             lss[j] = new JLabel("s[mm] dla linii: "+j);
@@ -199,7 +203,7 @@ public class gui {
         //x linii
         y=90;
         tfsx = new JTextField[variables.count];
-        JLabel[] lsx = new JLabel[variables.count];
+        lsx = new JLabel[variables.count];
         for (int j = 0; j < tfsx.length; j++) {
 
             lsx[j] = new JLabel("x dla linii: "+j);
@@ -243,6 +247,18 @@ public class gui {
         }
 
     }
+    public void guiLineRemove(){
+        for(int i=0;i<tfsgamma.length;i++) {
+            tfsdlugosc[i].setVisible(false);
+            lsdlugosc[i].setVisible(false);
+            tfsgamma[i].setVisible(false);
+            lsgamma[i].setVisible(false);
+            tfss[i].setVisible(false);
+            lss[i].setVisible(false);
+            tfsx[i].setVisible(false);
+            lsx[i].setVisible(false);
+        }
+    }
     public void guiButtonLines() {
         b = new JButton("Dodaj linie");
         f.add(b);
@@ -254,7 +270,6 @@ public class gui {
         f.add(eq);
         eq.setBounds(10, 300, 110, 50);
     }
-
     public void guiResultObwod(){
         //reaktancja
         Label l9 = new Label("Reaktancja obwodu[mΩ]:");
@@ -306,7 +321,7 @@ public class gui {
         LineRTtext = new JTextField[variables.count];
         JLabel[] LineRezystancja = new JLabel[variables.count];
         for (int j = 0; j < variables.count; j++) {
-            LineRezystancja[j] = new JLabel("<html>Rezystancja [mΩ] <br> dla linii:"+j+"</html>");
+            LineRezystancja[j] = new JLabel("<html>Rezystancja [mΩ] <br> dla linii: "+j+"</html>");
             f.add(LineRezystancja[j]);
             LineRezystancja[j].setBounds(400,y,150,40);
 
@@ -322,7 +337,7 @@ public class gui {
         LineXTtext = new JTextField[variables.count];
         JLabel[] LineReaktancja = new JLabel[variables.count];
         for (int j = 0; j < variables.count; j++) {
-            LineReaktancja[j] = new JLabel("<html>Reaktancja [mΩ] <br> dla linii:"+j+"</html>");
+            LineReaktancja[j] = new JLabel("<html>Reaktancja [mΩ] <br> dla linii: "+j+"</html>");
             f.add(LineReaktancja[j]);
             LineReaktancja[j].setBounds(550,y,150,40);
 
@@ -378,7 +393,6 @@ public class gui {
         Iktext.setBounds(10, 380, 150, 20);
         Iktext.setText(Float.toString(variables.ik));
     }
-
     public void reslutFunctionsAppear(){
 
         guiResultObwod();
@@ -386,5 +400,17 @@ public class gui {
         guiResultLines();
         guiResultObwodZwarciowy();
         guiResultIk();
+        variables.wybor=0;
+
+        if(variables.count>=3){
+            int x=600;
+            int y=900;
+            int aha=variables.count-3;
+            int xBig=x+(aha*80);
+            f.setSize(y,xBig);
+        }else{
+            f.setSize(900,600);
+        }
+
     }
 }

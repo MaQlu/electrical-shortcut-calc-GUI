@@ -50,21 +50,21 @@ public class functions {
     public void linieZwykla(){
         //linie
         for(int i=0;i<variables.count;i++){
-            System.out.println();
+            //System.out.println();
 
             variables.rl+=(variables.dlugosc[i]*1000)/(variables.gamma[i]*variables.s[i]);
             double rlx=(variables.dlugosc[i]*1000)/(variables.gamma[i]*variables.s[i]);
-            System.out.println("rl dla linii: " +i+"= "+df.format(rlx)+"mOM");
+            //System.out.println("rl dla linii: " +i+"= "+df.format(rlx)+"mOM");
 
             variables.xl+=variables.xprim[i]*variables.dlugosc[i];
             double xlx=variables.xprim[i]*variables.dlugosc[i];
-            System.out.println("xl dla linii: " +i+"= "+df.format(xlx)+"mOM");
+            //System.out.println("xl dla linii: " +i+"= "+df.format(xlx)+"mOM");
 
             variables.rlArray[i]=(float)rlx;
             variables.xlArray[i]=(float)xlx;
 
         }
-        System.out.println();
+        //System.out.println();
 
         variables.setRl(variables.rl);
         variables.setXl(variables.xl);

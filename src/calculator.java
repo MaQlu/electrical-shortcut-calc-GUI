@@ -21,9 +21,9 @@ public class calculator implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource()==gui.b){
             gui.guiLineCountValue();
+            gui.guiLineRemove();
             gui.guiLine();
             gui.f.setSize(820,400);
             }
@@ -31,37 +31,23 @@ public class calculator implements ActionListener {
         if(e.getSource()==gui.eq){
             functions.setZero();
             gui.guiVariablesValue();
-
-            if(variables.count>3){
-                int x=600;
-                int y=900;
-                int aha=variables.count-3;
-                int xBig=x+(aha*80);
-                gui.f.setSize(y,xBig);
-            }else{
-                gui.f.setSize(900,600);
-            }
+            gui.guiLineValue();
 
             switch(variables.wybor){
                 case 1:
-                    System.out.println("Metoda Zwykła: ");
-                    gui.guiLineValue();
                     functions.zwarcieZwykla();
                     gui.c1.setSelected(false);
-                    gui.reslutFunctionsAppear();
-                    variables.wybor=0;
                     break;
+
                 case 2:
-                    System.out.println("Metoda Uproszczona: ");
-                    gui.guiLineValue();
                     functions.zwarcieUproszczona();
                     gui.c2.setSelected(false);
-                    gui.reslutFunctionsAppear();
-                    variables.wybor=0;
                     break;
+
                 default:
                     break;
             }
+            gui.reslutFunctionsAppear();
         }
     }
 
