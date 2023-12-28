@@ -26,12 +26,25 @@ public class calculator implements ActionListener {
             gui.guiLineRemove();
             gui.guiLine();
             gui.f.setSize(820,400);
+            gui.methodChoiceRemove();
             }
 
         if(e.getSource()==gui.eq){
+
+            if (variables.counter >=1){
+                gui.methodChoiceRemove();
+                gui.guiResultIkRemove();
+                gui.guiResultObwodRemove();
+                gui.guiResultTransformatorRemove();
+                gui.guiResultLinesRemove();
+                gui.guiResultObwodZwarciowyRemove();
+
+            }
+
             functions.setZero();
             gui.guiVariablesValue();
             gui.guiLineValue();
+            gui.methodChoice();
 
             switch(variables.wybor){
                 case 1:
@@ -48,7 +61,9 @@ public class calculator implements ActionListener {
                     break;
             }
             gui.reslutFunctionsAppear();
+            variables.counter+=1;
         }
+
     }
 
 }

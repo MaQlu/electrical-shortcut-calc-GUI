@@ -1,4 +1,5 @@
 public class variables {
+    public static int counter;
     public static int wybor;
     public static int count;
 
