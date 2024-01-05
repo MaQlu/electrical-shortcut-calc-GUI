@@ -60,7 +60,7 @@ public class gui {
         f.add(c1);
 
         c2 = new JCheckBox("Uproszczona");
-        c2.setBounds(100, 40, 110, 20);
+        c2.setBounds(100, 40, 140, 20);
         f.add(c2);
 
     }
@@ -188,7 +188,7 @@ public class gui {
 
             lsgamma[j] = new JLabel("gamma dla linii: "+j);
             f.add(lsgamma[j]);
-            lsgamma[j].setBounds(400,y+20,100,20);
+            lsgamma[j].setBounds(400,y+20,140,20);
 
             tfsgamma[j] = new JTextField();
             f.add(tfsgamma[j]);
@@ -204,7 +204,7 @@ public class gui {
 
             lss[j] = new JLabel("s[mm] dla linii: "+j);
             f.add(lss[j]);
-            lss[j].setBounds(550,y+20,100,20);
+            lss[j].setBounds(550,y+20,140,20);
 
             tfss[j] = new JTextField();
             f.add(tfss[j]);
@@ -303,7 +303,7 @@ public class gui {
     public void guiResultObwod(){
 
         //reaktancja
-        Xqlabel = new JLabel("<html>Reaktancja obwodu<br>(XQ) [mΩ]:</html>");
+        Xqlabel = new JLabel("<html>Reaktancja obwodu<br>(X<sub>Q</sub>) [mΩ]:</html>");
         Xqlabel.setBounds(10, 400, 150, 40);
         f.add(Xqlabel);
 
@@ -326,7 +326,7 @@ public class gui {
         int htf=20;
 
         //rezystancja
-        Rtlabel = new JLabel("<html>Rezystancja transformatora<br>(RT) [mΩ]:</html>");
+        Rtlabel = new JLabel("<html>Rezystancja transformatora<br>(R<sub>T</sub>) [mΩ]:</html>");
         Rtlabel.setBounds(x, y, wl, hl);
         f.add(Rtlabel);
 
@@ -336,7 +336,7 @@ public class gui {
         Rttext.setBounds(x,y+=40 , wtf, htf);
 
         //reaktancja
-        Xtlabel = new JLabel("<html>Reaktancja transformatora<br>(XT) [mΩ]:</html>");
+        Xtlabel = new JLabel("<html>Reaktancja transformatora<br>(X<sub>T</sub>) [mΩ]:</html>");
         Xtlabel.setBounds(x, y+=20, wl, hl);
         f.add(Xtlabel);
 
@@ -346,7 +346,7 @@ public class gui {
         Xttext.setBounds(x,y+=40 , wtf, htf);
 
         //impedancja
-        Ztlabel = new JLabel("<html>Impedancja transformatora<br>(ZT) [mΩ]:</html>");
+        Ztlabel = new JLabel("<html>Impedancja transformatora<br>(Z<sub>T</sub>) [mΩ]:</html>");
         Ztlabel.setBounds(x, y+=20, wl, hl);
         f.add(Ztlabel);
 
@@ -374,7 +374,7 @@ public class gui {
         LineRezystancja = new JLabel[variables.count];
 
         for (int j = 0; j < variables.count; j++) {
-            LineRezystancja[j] = new JLabel("<html>Rezystancja(RL) [mΩ] <br> dla linii: "+j+"</html>");
+            LineRezystancja[j] = new JLabel("<html>Rezystancja(R<sub>L</sub>) [mΩ] <br> dla linii: "+j+"</html>");
             f.add(LineRezystancja[j]);
             LineRezystancja[j].setBounds(400,y,150,40);
 
@@ -390,7 +390,7 @@ public class gui {
         LineXTtext = new JTextField[variables.count];
         LineReaktancja = new JLabel[variables.count];
         for (int j = 0; j < variables.count; j++) {
-            LineReaktancja[j] = new JLabel("<html>Reaktancja(XL) [mΩ] <br> dla linii: "+j+"</html>");
+            LineReaktancja[j] = new JLabel("<html>Reaktancja(X<sub>L</sub>) [mΩ] <br> dla linii: "+j+"</html>");
             f.add(LineReaktancja[j]);
             LineReaktancja[j].setBounds(550,y,150,40);
 
@@ -415,7 +415,7 @@ public class gui {
         int y=360;
 
         //rezystancja
-        RkLabel1 = new JLabel("<html>Rezystancja obwodu(RK) <br> zwarciowego [mΩ]:</html>");
+        RkLabel1 = new JLabel("<html>Rezystancja obwodu(R<sub>K</sub>) <br> zwarciowego [mΩ]:</html>");
         RkLabel1.setBounds(x, y, 200, 40);
         f.add(RkLabel1);
 
@@ -426,7 +426,7 @@ public class gui {
 
 
         //reaktancja
-        RkLabel2 = new JLabel("<html>Reaktancja obwodu(XK) <br> zwarciowego [mΩ]:</html>");
+        RkLabel2 = new JLabel("<html>Reaktancja obwodu(X<sub>K</sub>) <br> zwarciowego [mΩ]:</html>");
         RkLabel2.setBounds(x, y+=20, 200, 40);
         f.add(RkLabel2);
 
@@ -436,7 +436,7 @@ public class gui {
         Xktext.setBounds(x,y+=40 , 110, 20);
 
         //impedancja
-        RkLabel3 = new JLabel("<html>Impedancja obwodu(ZK) <br> zwarciowego [mΩ]:</html>:");
+        RkLabel3 = new JLabel("<html>Impedancja obwodu(Z<sub>K</sub>) <br> zwarciowego [mΩ]:</html>:");
         RkLabel3.setBounds(x, y+=20, 200, 40);
         f.add(RkLabel3);
 
