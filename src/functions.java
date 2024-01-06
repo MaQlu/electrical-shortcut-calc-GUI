@@ -19,6 +19,7 @@ public class functions {
         variables.setXt(0);
         variables.setZk(0);
         variables.setIk(0);
+        variables.setIk3f(0);
     }
     public void obwod(){
         //obwód
@@ -103,7 +104,7 @@ public class functions {
 
         double ikLocal=(float)(1*variables.Un)/(sqrt(3)*variables.zk);
         variables.setIk((float)ikLocal);
-        variables.setIk(variables.ik*=1000000);
+        variables.setIk(variables.ik1f*=1000000);
 
     }
     public void zwarcieUproszczona(){
@@ -115,6 +116,10 @@ public class functions {
         double ikLocal=(0.95*230)/variables.zk;
         ikLocal*=1000;
         variables.setIk((float) ikLocal);
+
+        double ikLocal3f=(0.95*400)/variables.zk;
+        ikLocal3f*=1000;
+        variables.setIk3f((float) ikLocal3f);
 
     }
 }

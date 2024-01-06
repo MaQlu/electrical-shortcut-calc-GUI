@@ -43,9 +43,14 @@ public class variables {
         variables.xt = xt;
     }
 
-    public static float ik;
-    public static void setIk(float ik) {
-        variables.ik = ik;
+    public static float ik1f;
+    public static void setIk(float ik1f) {
+        variables.ik1f = ik1f;
+    }
+
+    public static float ik3f;
+    public static void setIk3f(float ik3f) {
+        variables.ik3f = ik3f;
     }
 
     public static float rk;
