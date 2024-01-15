@@ -30,7 +30,6 @@ public class calculator implements ActionListener {
             }
 
         if(e.getSource()==gui.eq){
-
             if (variables.counter >=1){
                 gui.methodChoiceRemove();
                 gui.guiResultIkRemove();
@@ -38,7 +37,6 @@ public class calculator implements ActionListener {
                 gui.guiResultTransformatorRemove();
                 gui.guiResultLinesRemove();
                 gui.guiResultObwodZwarciowyRemove();
-
             }
 
             functions.setZero();

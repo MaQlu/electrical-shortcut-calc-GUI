@@ -10,7 +10,6 @@ public class gui {
     JTextField Pntext;
     JTextField Snttext;
     JTextField Iktext;
-    JTextField Ik3ftext;
     JTextField Xqtext;
     JTextField Rttext;
     JTextField Zttext;
@@ -38,7 +37,6 @@ public class gui {
     JLabel Xtlabel = new JLabel();
     JLabel Xqlabel = new JLabel();
     JLabel Ik = new JLabel();
-    JLabel Ik3f = new JLabel();
     JLabel methodChoiceLabel = new JLabel();
     JTextField methodChoiceText;
     JButton b,eq;
@@ -466,27 +464,12 @@ public class gui {
         f.add(Iktext);
         Iktext.setBounds(10, 380, 150, 20);
         Iktext.setText(Float.toString(variables.ik1f));
-
-        if(variables.wybor == 2){
-            Ik3f = new JLabel("Prąd zwarciowy Ik(3~) [A]:");
-            Ik3f.setBounds(10, 460, 150, 20);
-            f.add(Ik3f);
-
-            Ik3ftext = new JTextField(17);
-            f.add(Ik3ftext);
-            Ik3ftext.setBounds(10, 480, 150, 20);
-            Ik3ftext.setText(Float.toString(variables.ik3f));
-
-        }
-
     }
     public void guiResultIkRemove(){
         Ik.setVisible(false);
         Iktext.setVisible(false);
-
-        Ik3f.setVisible(false);
-        Ik3ftext.setVisible(false);
     }
+
     public void reslutFunctionsAppear(){
         guiResultObwod();
         guiResultTransformator();

@@ -48,11 +48,6 @@ public class variables {
         variables.ik1f = ik1f;
     }
 
-    public static float ik3f;
-    public static void setIk3f(float ik3f) {
-        variables.ik3f = ik3f;
-    }
-
     public static float rk;
     public static void setRk(float rk) {
         variables.rk = rk;
