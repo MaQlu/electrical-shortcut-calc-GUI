@@ -38,24 +38,26 @@ public class gui {
     JLabel Xqlabel = new JLabel();
     JLabel Ik = new JLabel();
     JLabel methodChoiceLabel = new JLabel();
+    JLabel methodChoiceLabelError = new JLabel();
     JTextField methodChoiceText;
+    JLabel methodChoiceTextError;
     JButton b,eq;
     JCheckBox c1,c2;
 
     public void guiPanel(){
         //okienko
         f = new JFrame();
-        f.setSize(400,400);
+        f.setSize(400,320);
         f.setLayout(null);
         f.setVisible(true);
     }
     public void guiChoice(){
         //wybór
         Label l1 = new Label("Wybierz metodę: ");
-        l1.setBounds(10, 10, 200, 10);
+        l1.setBounds(10, 20, 200, 10);
         f.add(l1);
 
-        c1 = new JCheckBox("Zwykła");
+        c1 = new JCheckBox("Zwykla");
         c1.setBounds(10, 40, 90, 20);
         f.add(c1);
 
@@ -146,7 +148,7 @@ public class gui {
     public void guiLineCount(){
         //zmienna count
         Label l7 = new Label("Podaj ilość linii: ");
-        l7.setBounds(250, 10, 100, 20);
+        l7.setBounds(250, 20, 100, 20);
         f.add(l7);
 
         counttext = new JTextField(17);
@@ -280,21 +282,22 @@ public class gui {
     public void guiButtonEqual(){
         eq = new JButton("Oblicz");
         f.add(eq);
-        eq.setBounds(10, 300, 110, 50);
+        eq.setBounds(700, 40, 100, 40);
     }
     public void methodChoice(){
         methodChoiceLabel = new JLabel("Wybrana metoda: ");
         f.add(methodChoiceLabel);
-        methodChoiceLabel.setBounds(200,300,200,20);
+        methodChoiceLabel.setBounds(850,40,150,20);
 
         methodChoiceText = new JTextField(17);
+
         if(variables.wybor == 1){
             methodChoiceText.setText("Metoda zwykla");
         }else{
             methodChoiceText.setText("Metoda uproszczona");
         }
         f.add(methodChoiceText);
-        methodChoiceText.setBounds(200,320,150,20);
+        methodChoiceText.setBounds(850,60,150,20);
     }
     public void methodChoiceRemove(){
         methodChoiceLabel.setVisible(false);
@@ -304,21 +307,22 @@ public class gui {
 
         //reaktancja
         Xqlabel = new JLabel("<html>Reaktancja obwodu<br>(X<sub>Q</sub>) [mΩ]:</html>");
-        Xqlabel.setBounds(10, 400, 150, 40);
+        Xqlabel.setBounds(850, 90, 150, 40);
         f.add(Xqlabel);
 
         Xqtext = new JTextField(17);
         Xqtext.setText(Float.toString(variables.xq));
         f.add(Xqtext);
-        Xqtext.setBounds(10,440 , 150, 20);
+        Xqtext.setBounds(850,130 , 150, 20);
+        Xqtext.setEditable(false);
     }
     public void guiResultObwodRemove(){
         Xqlabel.setVisible(false);
         Xqtext.setVisible(false);
     }
     public void guiResultTransformator(){
-        int x=200;
-        int y=360;
+        int x=1040;
+        int y=90;
         int wl=200;
         int hl=40;
 
@@ -334,6 +338,7 @@ public class gui {
         Rttext.setText(Float.toString(variables.rt));
         f.add(Rttext);
         Rttext.setBounds(x,y+=40 , wtf, htf);
+        Rttext.setEditable(false);
 
         //reaktancja
         Xtlabel = new JLabel("<html>Reaktancja transformatora<br>(X<sub>T</sub>) [mΩ]:</html>");
@@ -344,6 +349,7 @@ public class gui {
         Xttext.setText(Float.toString(variables.xt));
         f.add(Xttext);
         Xttext.setBounds(x,y+=40 , wtf, htf);
+        Xttext.setEditable(false);
 
         //impedancja
         Ztlabel = new JLabel("<html>Impedancja transformatora<br>(Z<sub>T</sub>) [mΩ]:</html>");
@@ -354,6 +360,7 @@ public class gui {
         Zttext.setText(Float.toString(variables.zt));
         f.add(Zttext);
         Zttext.setBounds(x,y+=40 , wtf, htf);
+        Zttext.setEditable(false);
 
     }
     public void guiResultTransformatorRemove(){
@@ -369,38 +376,53 @@ public class gui {
     public void guiResultLines(){
 
         //rezystancja linii
-        int y=360;
+        int x=1240;
+        int y=90;
         LineRTtext = new JTextField[variables.count];
         LineRezystancja = new JLabel[variables.count];
 
         for (int j = 0; j < variables.count; j++) {
             LineRezystancja[j] = new JLabel("<html>Rezystancja(R<sub>L</sub>) [mΩ] <br> dla linii: "+j+"</html>");
             f.add(LineRezystancja[j]);
-            LineRezystancja[j].setBounds(400,y,150,40);
+            LineRezystancja[j].setBounds(x,y,150,40);
 
             LineRTtext[j] = new JTextField(17);
             LineRTtext[j].setText(Float.toString(variables.rlArray[j]));
             f.add(LineRTtext[j]);
-            LineRTtext[j].setBounds(400, y+40, 110, 20);
+            LineRTtext[j].setBounds(x, y+40, 110, 20);
+            LineRTtext[j].setEditable(false);
             y+=60;
         }
 
+        x=1390;
+        y=90;
         //reaktancja linii
-        y=360;
         LineXTtext = new JTextField[variables.count];
         LineReaktancja = new JLabel[variables.count];
         for (int j = 0; j < variables.count; j++) {
             LineReaktancja[j] = new JLabel("<html>Reaktancja(X<sub>L</sub>) [mΩ] <br> dla linii: "+j+"</html>");
             f.add(LineReaktancja[j]);
-            LineReaktancja[j].setBounds(550,y,150,40);
+            LineReaktancja[j].setBounds(x,y,150,40);
 
             LineXTtext[j] = new JTextField(17);
             LineXTtext[j].setText(Float.toString(variables.xlArray[j]));
             f.add(LineXTtext[j]);
-            LineXTtext[j].setBounds(550, y+40, 110, 20);
+            LineXTtext[j].setBounds(x, y+40, 110, 20);
+            LineXTtext[j].setEditable(false);
             y+=60;
         }
 
+    }
+    public void guiLineData(){
+        int x=820;
+        int y=320;
+        if(variables.count>4){
+            int aha=variables.count-4;
+            variables.yBig=y+(aha*40);
+            f.setSize(x,variables.yBig);
+        }else{
+            f.setSize(x,y);
+        }
     }
     public void guiResultLinesRemove(){
         for(int i=0;i<LineRTtext.length;i++) {
@@ -411,8 +433,8 @@ public class gui {
         }
     }
     public void guiResultObwodZwarciowy(){
-        int x=700;
-        int y=360;
+        int x=1540;
+        int y=90;
 
         //rezystancja
         RkLabel1 = new JLabel("<html>Rezystancja obwodu(R<sub>K</sub>) <br> zwarciowego [mΩ]:</html>");
@@ -423,6 +445,7 @@ public class gui {
         Rktext.setText(Float.toString(variables.rk));
         f.add(Rktext);
         Rktext.setBounds(x,y+=40 , 110, 20);
+        Rktext.setEditable(false);
 
 
         //reaktancja
@@ -434,6 +457,7 @@ public class gui {
         Xktext.setText(Float.toString(variables.xk));
         f.add(Xktext);
         Xktext.setBounds(x,y+=40 , 110, 20);
+        Xktext.setEditable(false);
 
         //impedancja
         RkLabel3 = new JLabel("<html>Impedancja obwodu(Z<sub>K</sub>) <br> zwarciowego [mΩ]:</html>:");
@@ -444,6 +468,7 @@ public class gui {
         Zktext.setText(Float.toString(variables.zk));
         f.add(Zktext);
         Zktext.setBounds(x,y+=40 , 110, 20);
+        Zktext.setEditable(false);
     }
     public void guiResultObwodZwarciowyRemove(){
         RkLabel1.setVisible(false);
@@ -457,19 +482,50 @@ public class gui {
     }
     public void guiResultIk1f(){
         Ik = new JLabel("Prąd zwarciowy Ik(1~) [A]:");
-        Ik.setBounds(10, 360, 150, 20);
+        Ik.setBounds(1040, 40, 150, 20);
         f.add(Ik);
 
         Iktext = new JTextField(17);
         f.add(Iktext);
-        Iktext.setBounds(10, 380, 150, 20);
+        Iktext.setBounds(1040, 60, 150, 20);
         Iktext.setText(Float.toString(variables.ik1f));
+        Iktext.setEditable(false);
     }
     public void guiResultIkRemove(){
         Ik.setVisible(false);
         Iktext.setVisible(false);
     }
+    public void guiResultView(){
+        int x=1700;
+        int y=400;
+        if(variables.count>5){
+            int aha=variables.count-4;
+            int yBig=y+(aha*60);
+            f.setSize(x,yBig);
+        }else{
+            f.setSize(x,y);
+        }
+    }
+    public void guiErrorMethod(){
+        methodChoiceLabelError = new JLabel("Wybrana metoda: ");
+        f.add(methodChoiceLabelError);
+        methodChoiceLabelError.setBounds(850,40,150,20);
 
+        methodChoiceTextError = new JLabel("<html><b><font color='red'>WYBIERZ METODE!</font></b></html>");
+        f.add(methodChoiceTextError);
+        methodChoiceTextError.setBounds(850,60,150,20);
+
+        if(variables.count>4){
+            f.setSize(1000,variables.yBig);
+        }else{
+            f.setSize(1000,320);
+        }
+    }
+    public void guiErrorMethodRemove(){
+        methodChoiceLabelError.setVisible(false);
+        methodChoiceTextError.setVisible(false);
+        variables.ErrorMethod=0;
+    }
     public void reslutFunctionsAppear(){
         guiResultObwod();
         guiResultTransformator();
@@ -478,14 +534,5 @@ public class gui {
         guiResultIk1f();
         variables.wybor=0;
 
-        if(variables.count>=3){
-            int x=600;
-            int y=900;
-            int aha=variables.count-3;
-            int xBig=x+(aha*80);
-            f.setSize(y,xBig);
-        }else{
-            f.setSize(900,600);
-        }
     }
 }

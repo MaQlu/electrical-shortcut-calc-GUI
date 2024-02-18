@@ -7,15 +7,13 @@ public class calculator implements ActionListener {
     calculator(){
         gui.guiPanel();
         gui.guiChoice();
-
-        gui.c1.addItemListener(e -> variables.wybor =1);
-        gui.c2.addItemListener(e -> variables.wybor =2);
-
         gui.guiVariables();
         gui.guiLineCount();
         gui.guiButtonLines();
+        //dodaj linie
         gui.b.addActionListener(this);
         gui.guiButtonEqual();
+        //oblicz
         gui.eq.addActionListener(this);
     }
 
@@ -25,11 +23,26 @@ public class calculator implements ActionListener {
             gui.guiLineCountValue();
             gui.guiLineRemove();
             gui.guiLine();
-            gui.f.setSize(820,400);
+            gui.guiLineData();
             gui.methodChoiceRemove();
             }
+liczenie:
 
         if(e.getSource()==gui.eq){
+
+            if (variables.ErrorMethod==1){
+                gui.guiErrorMethodRemove();
+            }
+
+            if(gui.c1.isSelected()){
+                variables.wybor=1;
+            }else if (gui.c2.isSelected()) {
+                variables.wybor=2;
+            }else{
+                variables.wybor=0;
+                variables.ErrorMethod=1;
+            }
+
             if (variables.counter >=1){
                 gui.methodChoiceRemove();
                 gui.guiResultIkRemove();
@@ -39,27 +52,25 @@ public class calculator implements ActionListener {
                 gui.guiResultObwodZwarciowyRemove();
             }
 
+            if(variables.wybor==1){
+                functions.zwarcieZwykla();
+                gui.c1.setSelected(false);
+            } else if (variables.wybor==2) {
+                functions.zwarcieUproszczona();
+                gui.c2.setSelected(false);
+            }else{
+                gui.guiErrorMethod();
+                break liczenie;
+            }
+
             functions.setZero();
+            gui.guiResultView();
             gui.guiVariablesValue();
             gui.guiLineValue();
             gui.methodChoice();
-
-            switch(variables.wybor){
-                case 1:
-                    functions.zwarcieZwykla();
-                    gui.c1.setSelected(false);
-                    break;
-
-                case 2:
-                    functions.zwarcieUproszczona();
-                    gui.c2.setSelected(false);
-                    break;
-
-                default:
-                    break;
-            }
             gui.reslutFunctionsAppear();
             variables.counter+=1;
+
         }
 
     }

@@ -70,5 +70,6 @@ public class variables {
     public static float[] s = new float[100];
     public static float[] xprim = new float[100];
 
-
+    public static int yBig;
+    public static int ErrorMethod;
 }

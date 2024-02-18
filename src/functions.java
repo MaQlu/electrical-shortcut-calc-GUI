@@ -4,6 +4,7 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
 public class functions {
+    gui gui = new gui();
     public void setZero(){
         for (int i=0;i<variables.count;i++){
             variables.dlugosc[i]=0;
@@ -117,4 +118,5 @@ public class functions {
         variables.setIk((float) ikLocal);
 
     }
+
 }
