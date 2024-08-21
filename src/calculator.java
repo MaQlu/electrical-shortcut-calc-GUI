@@ -16,7 +16,7 @@ public class calculator implements ActionListener {
         //oblicz
         gui.eq.addActionListener(this);
     }
-
+//KURWA
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==gui.b){
